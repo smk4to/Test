@@ -1,0 +1,119 @@
+.dx-popup-content {
+  padding: 0 !important;
+}
+.button-popover-content {
+  padding: 10px;
+}
+.window-title {
+  display: inline !important;
+  padding: 5px !important;
+  overflow: hidden !important;
+  border-bottom: 1px solid #e0e0e0;
+}
+.window-title h1 {
+  line-height: 40px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 21px;
+  display: inline;
+  vertical-align: middle;
+}
+.window-content {
+  padding: 15px !important;
+}
+.window-footer {
+  padding: 5px !important;
+  min-height: 28px;
+  background: transparent;
+  border-top: 1px solid #e0e0e0;
+  color: rgba(0, 0, 0, 0.5);
+  white-space: normal;
+  overflow: hidden !important;
+  text-align: right;
+}
+.dx-layout-manager
+  .dx-label-h-align.dx-flex-layout:not(.dx-field-item-label-align) {
+  -webkit-align-items: center !important;
+  -webkit-box-align: center !important;
+  -ms-flex-align: center !important;
+  align-items: center !important;
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.content {
+  opacity: 0;
+  transition: 1s;
+  animation: show 1s 1;
+  animation-fill-mode: forwards;
+}
+.dx-box-align-items-baseline {
+  align-items: baseline !important;
+}
+.dx-tabpanel.operator-tickets .dx-tab {
+  width: 350px !important;
+  background-color: #fff !important;
+}
+/*
+.popup-title {
+  padding: 5px !important;
+  overflow: hidden !important;
+  margin-bottom: 0 !important;
+}
+.popup-title h1 {
+  font-size: 21px;
+  display: inline;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.popup-content {
+  padding: 10px;
+}
+.popup-content h2 {
+  font-size: 18px;
+  vertical-align: middle;
+  margin-top: 5px;
+  margin-left: 10px;
+  margin-bottom: 25px;
+}
+.dx-popup-content {
+  padding: 0 !important;
+}
+
+.popup-button {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.24) !important;
+}
+.popup-button-has-icon {
+  width: 36px !important;
+}
+.popup-button-square {
+  border-radius: 4px !important;
+}
+.popup-content-box {
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  padding-left: 40px !important;
+  padding-right: 40px !important;
+}
+
+
+
+.dx-button .dx-button-content {
+  white-space: normal !important;
+  line-height: inherit !important;
+}
+.dx-button-text {
+  line-height: inherit !important;
+}
+
+
+.dx-datagrid-rowsview .dx-master-detail-row:not(.dx-datagrid-edit-form) > .dx-datagrid-group-space, .dx-datagrid-rowsview .dx-master-detail-row:not(.dx-datagrid-edit-form) .dx-master-detail-cell {
+background-color: #fff !important;
+}
+
+*/

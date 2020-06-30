@@ -1,0 +1,9 @@
+{
+  "LocalDatabase": {
+    "System": "Postgres", //   "MsSql"
+    "Server": "localhost", //   "(localdb)\\mssqllocaldb"   //  "192.168.1.1"
+    "Database": "TestDatabase",
+    "User": "postgres",
+    "Password": "postgres"
+  }
+}

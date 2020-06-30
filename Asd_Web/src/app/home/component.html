@@ -1,0 +1,88 @@
+<app-window [visible]="true" [width]="width" [height]="height">
+  <div class="title">
+    <h1>Departments</h1>
+  </div>
+  <div class="content">
+
+    <dx-data-grid #grid [dataSource]="departments" keyExpr="Id" [allowColumnResizing]="true" [cellHintEnabled]="true"
+      [columnAutoWidth]="true" [filterSyncEnabled]="true" [hoverStateEnabled]="true" [remoteOperations]="false"
+      [renderAsync]="false" [rowAlternationEnabled]="false" [showBorders]="true" [showColumnHeaders]="true"
+      [showColumnLines]="true" [showRowLines]="true" [masterDetail]="{ enabled: true, template: 'detail' }"
+      [height]="gridHeight">
+
+
+      <!-- !!!!!!! колонки основной таблицы ----------------------------------------------------------->
+      <dxi-column dataField="Id" caption="Id" [visible]="false"></dxi-column>
+      <dxi-column dataField="Name" caption="Название" cellTemplate="СellTemplate">
+        <div *dxTemplate="let cellInfo of 'СellTemplate'"><strong>{{cellInfo?.value}}</strong></div>
+      </dxi-column>
+      <dxi-column dataField="Count" caption="Количество сотрудников">
+      </dxi-column>
+      <dxi-column dataField="Avg" caption="Средняя з/п">
+      </dxi-column>
+      <!------------------------------------------------------------------- колонки основной таблицы -->
+
+      <!-- шаблон вспомогательной таблицы ------------------------------------------------------------->
+      <div *dxTemplate="let departmentItem of 'detail'">
+
+        <dx-box direction="row" style="margin: 10px 10px 10px 10px">
+          <dxi-item [ratio]="2">
+            <h2 style="margin: 0">Employees:</h2>
+          </dxi-item>
+        </dx-box>
+
+        <!-- вспомогательная таблица ------------------------------------------------------------------>
+        <dx-data-grid width="90%" [dataSource]="GetDepartmentEmployees(departmentItem.key)" keyExpr="Id"
+          [allowColumnResizing]="true" [cellHintEnabled]="true" [columnAutoWidth]="true" [filterSyncEnabled]="true"
+          [hoverStateEnabled]="false" [remoteOperations]="false" [renderAsync]="false" [rowAlternationEnabled]="false"
+          [showBorders]="true" [showColumnHeaders]="true" [showColumnLines]="true" [showRowLines]="true">
+
+          <!-- !!!!!!! колонки вспомогательной таблицы ------------------------------------------------>
+          <dxi-column dataField="Id" caption="Id" [visible]="false"></dxi-column>
+          <dxi-column dataField="Name" caption="Название" cellTemplate="СellTemplate">
+            <div *dxTemplate="let cellInfo of 'СellTemplate'"><strong>{{cellInfo?.value}}</strong></div>
+          </dxi-column>
+          <!-------------------------------------------------------- колонки вспомогательной таблицы -->
+
+          <!-- колонка команд вспомогательной таблицы ------------------------------------------------->
+          <dxi-column type="buttons" cellTemplate="ColumnTemplate">
+            <div *dxTemplate="let data of 'ColumnTemplate'">
+              <dx-button type="success" hint="Открыть" icon="fas fa-eye"
+                (click)="ButtonClick(departmentItem.data.Id,data.key)">
+              </dx-button>
+            </div>
+          </dxi-column>
+          <!------------------------------------------------- колонка команд вспомогательной таблицы -->
+
+        </dx-data-grid>
+        <!------------------------------------------------------------------ вспомогательная таблица -->
+
+      </div>
+      <!------------------------------------------------------------- шаблон вспомогательной таблицы -->
+
+    </dx-data-grid>
+
+  </div>
+  <div class="footer"> </div>
+</app-window>
+
+<app-window *ngIf="popupVisible" [visible]="popupVisible" [width]="500" [height]="175">
+  <div class="icon">
+    <dx-button icon="fas fa-eye" type="success">
+    </dx-button>
+  </div>
+  <div class="title">
+    <h1>Employee</h1>
+  </div>
+  <div class="content">
+    Имя - {{employee.Name}}
+    <br>
+    Департамент - {{department.Name}}
+    <br>
+    З/п - {{employee.Salary}}
+  </div>
+  <div class="close">
+    <dx-button id="closeButton" icon="fas fa-times" type="danger" (onClick)="ClosePopup()">
+    </dx-button>
+  </div>
+</app-window>

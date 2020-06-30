@@ -1,0 +1,36 @@
+<dx-popup [visible]="visible" [width]="width" [minWidth]="width" [maxWidth]="width" [height]="height"
+  [maxHeight]="height" [minHeight]="height" [showTitle]="false" [showCloseButton]="false" [closeOnOutsideClick]="false"
+  [dragEnabled]="false" [closeOnOutsideClick]="false">
+  <div *dxTemplate="let data of 'content'">
+    <dx-box direction="row" [style.height]="titleHeight">
+      <dxi-item [ratio]="1" class="window-title">
+        <dx-box direction="row">
+          <dxi-item [ratio]="9">
+            <div style="text-align: left; overflow: hidden;">
+              <ng-content select=".title"></ng-content>
+            </div>
+          </dxi-item>
+          <dxi-item [ratio]="1" [visible]="closeButton">
+            <div style="text-align: right;">
+              <ng-content select=".close"></ng-content>
+            </div>
+          </dxi-item>
+        </dx-box>
+      </dxi-item>
+    </dx-box>
+    <dx-box direction="row" [style.height]="contentHeight">
+      <dxi-item [ratio]="1" class="window-content" style="height: 400px !important;">
+        <dx-box direction="row">
+          <dxi-item [ratio]="1">
+            <ng-content select=".content"></ng-content>
+          </dxi-item>
+        </dx-box>
+      </dxi-item>
+    </dx-box>
+    <dx-box direction="row" [style.height]="footerHeight">
+      <dxi-item [ratio]="1" class="window-footer">
+        <ng-content select=".footer"></ng-content>
+      </dxi-item>
+    </dx-box>
+  </div>
+</dx-popup>
